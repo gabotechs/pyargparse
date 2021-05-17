@@ -21,6 +21,7 @@ class BaseArguments(ABC):
         self._help: T.Dict[str, T.List[str]] = defaultdict(lambda: [])
         self._config_path = config_path
         self._attr_map = self.__get_args()
+        self._add_help()
         self._parse()
         self.__validate()
 
@@ -31,6 +32,9 @@ class BaseArguments(ABC):
             msg += f"{comes_from} {arg.name}: {self.__getattribute__(arg.name)}\n"
         msg += "=========================="
         return msg
+
+    def _add_help(self):
+        pass
 
     def _parse(self):
         pass

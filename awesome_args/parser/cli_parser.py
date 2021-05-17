@@ -9,6 +9,11 @@ class CliArgumentError(ArgumentError):
 
 
 class CliArguments(BaseArguments):
+    def _add_help(self):
+        super(CliArguments, self)._add_help()
+        for arg in self._attr_map.values():
+            self._help[arg.name].append(f'[CLI] --{arg.name.replace("_", "-")}: {arg.type}')
+
     def _parse(self):
         super(CliArguments, self)._parse()
         p = argparse.ArgumentParser()
@@ -17,7 +22,6 @@ class CliArguments(BaseArguments):
 
         args = p.parse_known_args()[0]
         for arg in self._attr_map.values():
-            self._help[arg.name].append(f'[CLI] --{arg.name.replace("_", "-")}: {arg.type}')
             value = args.__getattribute__(arg.name)
             if value is None:
                 continue

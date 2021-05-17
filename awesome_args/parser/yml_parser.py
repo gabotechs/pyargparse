@@ -9,12 +9,19 @@ class YamlParseError(ArgumentError):
 
 
 class YmlArguments(BaseArguments):
+    def _add_help(self):
+        super(YmlArguments, self)._add_help()
+        for arg in self._attr_map.values():
+            self._help[arg.name].append(f'[YML] {arg.name}: {arg.type}')
+
     def _parse(self):
         super(YmlArguments, self)._parse()
         path = self._config_path
-        yaml_args = yaml.load(open(path), Loader=yaml.CLoader) if path and os.path.isfile(path) else None
+        if not path or not os.path.isfile(path):
+            return
+
+        yaml_args = yaml.load(open(path), Loader=yaml.CLoader)
         for arg in self._attr_map.values():
-            self._help[arg.name].append(f'[YML] {arg.name}: {arg.type}')
             if yaml_args is None or arg.name not in yaml_args:
                 continue
             value = yaml_args[arg.name]
@@ -29,4 +36,4 @@ class YmlArguments(BaseArguments):
                                      f"{arg.type} was expected")
 
             self.__setattr__(arg.name, value)
-            self._comes_from[arg.name] = "YML   "
+            self._comes_from[arg.name] = "YML    "

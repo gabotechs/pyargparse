@@ -8,10 +8,14 @@ class EnvParseError(ArgumentError):
 
 
 class EnvArguments(BaseArguments):
+    def _add_help(self):
+        super(EnvArguments, self)._add_help()
+        for arg in self._attr_map.values():
+            self._help[arg.name].append(f'[ENV] {arg.name.upper()}: {arg.type}')
+
     def _parse(self):
         super(EnvArguments, self)._parse()
         for arg in self._attr_map.values():
-            self._help[arg.name].append(f'[ENV] {arg.name.upper()}: {arg.type}')
             value = os.environ.get(arg.name.upper(), None)
             if value is None:
                 continue
