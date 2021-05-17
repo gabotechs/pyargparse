@@ -1,0 +1,14 @@
+name: test
+on:
+  push:
+    paths:
+      - 'awesome_args/**'
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: pip install -r requirements.txt && pip install pytest
+      - name: Test
+        run: pytest -v awesome_args

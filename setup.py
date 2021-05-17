@@ -5,7 +5,7 @@ setup(
     version=open("version.txt").read(),
     packages=find_packages(),
     url='https://github.com/GabrielMusat/awesome-args',
-    python_requires=">=3.7.*",
+    python_requires=">=3.5.*",
     license='MIT',
     author='Gabriel Musat',
     install_requires=[req for req in open("requirements.txt").read().split("\n") if len(req) > 0],
@@ -14,20 +14,11 @@ setup(
                 'variables and .yml files',
     classifiers=[
         "Development Status :: 3 - Alpha",
-        "Environment :: GPU",
-        "Environment :: GPU :: NVIDIA CUDA",
-        "Intended Audience :: Developers",
-        "Intended Audience :: Education",
-        "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: Apache Software License",
         'Operating System :: MacOS',
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX',
         'Operating System :: Unix',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        'Programming Language :: Python :: 3',
         "Typing :: Typed"
     ]
 )
