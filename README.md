@@ -2,8 +2,8 @@
 <p align="center">
     <img src="https://github.com/GabrielMusat/pyargparser/actions/workflows/test.yml/badge.svg">
 </p>
-Parse arguments by just defining a typed class for your Python programs in a flexible and typed way from commandline arguments,
-environment variables, and/or yml config files.
+Parse arguments by just defining a typed class that can parse 
+from commandline arguments, environment variables, and/or yml config files.
 
 ## Install
 ```shell
