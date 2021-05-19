@@ -3,9 +3,9 @@
     <img src="https://github.com/GabrielMusat/pyargparser/actions/workflows/test.yml/badge.svg">
 </p>
 Parse arguments by just defining a typed class for your Python programs in a flexible and typed way from commandline arguments,
-environment variables, or yml config files.
+environment variables, and/or yml config files.
 
-## install
+## Install
 ```shell
 pip install pyargparse
 ```
@@ -44,7 +44,7 @@ python3 script.py
 
 The priority is: CLI > ENV > YML
 
-If you don't want to have all that possibilities for configure the program, there are more parsing classes 
+If you don't want to have all that possibilities for parsing arguments, there are more parsing classes 
 available:
 
 ```python
