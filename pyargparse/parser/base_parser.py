@@ -83,6 +83,6 @@ class BaseArguments(ABC):
 
     def _show_help(self):
         for attr, parsers_help in self._help.items():
-            print(f" === argument '{attr}' ===")
+            print(f"{attr} ({self._attr_map[attr].type}):")
             for parser_help in parsers_help:
-                print(3*" "+parser_help)
+                print(2*" "+parser_help)
