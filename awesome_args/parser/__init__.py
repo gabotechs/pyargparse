@@ -4,5 +4,5 @@ from .yml_parser import YamlParseError, YmlArguments
 from .cli_parser import CliArguments, CliArgumentError
 
 
-class Arguments(CliArguments, EnvArguments, YmlArguments, BaseArguments):
+class AwesomeArguments(CliArguments, EnvArguments, YmlArguments, BaseArguments):
     pass

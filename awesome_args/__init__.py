@@ -1,1 +1,1 @@
-from .parser import Arguments, CliArgumentError, EnvParseError, YamlParseError, ArgumentError
+from .parser import AwesomeArguments, CliArgumentError, EnvParseError, YamlParseError, ArgumentError
