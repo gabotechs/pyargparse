@@ -82,7 +82,18 @@ class BaseArguments(ABC):
         return attr_map
 
     def _show_help(self):
+        doc_map = {}
+        for line in (self.__doc__ or "").split("\n"):
+            if ":" in line:
+                split_line = line.split(":", 1)
+                if split_line[0].strip() in self._attr_map:
+                    doc_map[split_line[0].strip()] = split_line[1].strip()
         for attr, parsers_help in self._help.items():
             arg = self._attr_map[attr]
-            print(f"{attr} ({arg.type}){' (optional)' if arg.optional else ''}:")
-            print("  ", "    ".join(parsers_help[::-1]))
+            help_str = " "+doc_map[attr] if attr in doc_map else ""
+            optional = ' (optional)' if arg.optional else ''
+            print(f"  {attr} ({arg.type}){optional}{help_str}")
+            print(4*" ", end="")
+            for parse_help in parsers_help[::-1]:
+                print(parse_help+" "*(30-len(parse_help)), end="")
+            print()
