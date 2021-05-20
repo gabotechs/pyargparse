@@ -42,7 +42,7 @@ class BaseArguments(ABC):
     def __validate(self):
         for arg in self._attr_map.values():
             if not hasattr(self, arg.name) or not arg.optional and getattr(self, arg.name) is None:
-                print(f"error parsing argument '{arg.name}'")
+                print(f"argument '{arg.name}' is mandatory, but no value was provided")
                 self._show_help()
                 raise ArgumentError(f"argument '{arg.name}' is mandatory, but no value was provided")
 
@@ -83,6 +83,6 @@ class BaseArguments(ABC):
 
     def _show_help(self):
         for attr, parsers_help in self._help.items():
-            print(f"{attr} ({self._attr_map[attr].type}):")
-            for parser_help in parsers_help:
-                print(2*" "+parser_help)
+            arg = self._attr_map[attr]
+            print(f"{attr} ({arg.type}){' (optional)' if arg.optional else ''}:")
+            print("  ", "    ".join(parsers_help[::-1]))

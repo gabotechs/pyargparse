@@ -11,7 +11,7 @@ class EnvArguments(BaseArguments):
     def _add_help(self):
         super(EnvArguments, self)._add_help()
         for arg in self._attr_map.values():
-            self._help[arg.name].append(f'[ENV] {arg.name.upper()}: {arg.type}')
+            self._help[arg.name].append(f'[ENV] {arg.name.upper()}')
 
     def _parse(self):
         super(EnvArguments, self)._parse()

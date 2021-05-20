@@ -12,7 +12,7 @@ class CliArguments(BaseArguments):
     def _add_help(self):
         super(CliArguments, self)._add_help()
         for arg in self._attr_map.values():
-            self._help[arg.name].append(f'[CLI] --{arg.name.replace("_", "-")}: {arg.type}')
+            self._help[arg.name].append(f'[CLI] --{arg.name.replace("_", "-")}')
 
     def _parse(self):
         super(CliArguments, self)._parse()

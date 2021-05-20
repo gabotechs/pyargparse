@@ -12,7 +12,7 @@ class YmlArguments(BaseArguments):
     def _add_help(self):
         super(YmlArguments, self)._add_help()
         for arg in self._attr_map.values():
-            self._help[arg.name].append(f'[YML] {arg.name}: {arg.type}')
+            self._help[arg.name].append(f'[YML] {arg.name}')
 
     def _parse(self):
         super(YmlArguments, self)._parse()
