@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyargparse',
-    version="0.1.7",
+    version="0.1.8",
     packages=find_packages(),
     url='https://github.com/GabrielMusat/pyargparse',
     python_requires=">=3.5.*",
