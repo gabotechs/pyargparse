@@ -1,8 +1,9 @@
 from setuptools import setup, find_packages
+import os
 
 setup(
     name='pyargparse',
-    version=open("version.txt").read(),
+    version=open(os.path.join(os.path.split(__file__)[0], "version.txt")).read(),
     packages=find_packages(),
     url='https://github.com/GabrielMusat/pyargparse',
     python_requires=">=3.5.*",
