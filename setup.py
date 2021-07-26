@@ -1,15 +1,15 @@
 from setuptools import setup, find_packages
-import os
+
 
 setup(
     name='pyargparse',
-    version=open(os.path.join(os.path.split(__file__)[0], "version.txt")).read(),
+    version="0.1.7",
     packages=find_packages(),
     url='https://github.com/GabrielMusat/pyargparse',
     python_requires=">=3.5.*",
     license='MIT',
     author='Gabriel Musat',
-    install_requires=[req for req in open("requirements.txt").read().split("\n") if len(req) > 0],
+    install_requires=["pyyaml"],
     author_email='gabimtme@gmail.com',
     description='Awesome configuration parser for Python programs which can parse from command line, environment '
                 'variables and .yml files with a single class definition providing type hints for the parsed arguments',
