@@ -20,7 +20,7 @@ class YmlArguments(BaseArguments):
         if not path or not os.path.isfile(path):
             return
 
-        yaml_args = yaml.load(open(path), Loader=yaml.CLoader)
+        yaml_args = yaml.load(open(path), Loader=yaml.Loader)
         for arg in self._attr_map.values():
             if yaml_args is None or arg.name not in yaml_args:
                 continue
